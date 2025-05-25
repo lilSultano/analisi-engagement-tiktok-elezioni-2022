@@ -1,0 +1,45 @@
+# 📊 Analisi TikTok-Elezioni 2022 - Requirements
+# Università degli Studi di Udine - Scienza dei Dati
+# Studente: Mehdi Zahid (166932)
+# Data: 25 Maggio 2025
+
+# ===== CORE DATA SCIENCE =====
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# ===== VISUALIZZAZIONI =====
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.17.0
+
+# ===== MACHINE LEARNING =====
+scikit-learn>=1.3.0
+
+# ===== STRING MATCHING (per fuzzy matching politici) =====
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.21.0
+
+# ===== JUPYTER NOTEBOOKS =====
+jupyter>=1.0.0
+notebook>=6.5.0
+ipywidgets>=8.0.0
+
+# ===== FILE PROCESSING =====
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# ===== UTILITIES =====
+tqdm>=4.65.0
+datetime
+
+# ===== STATISTICAL ANALYSIS =====
+statsmodels>=0.14.0
+
+# ===== OPTIONAL: TEXT ANALYSIS =====
+# wordcloud>=1.9.0
+# nltk>=3.8.0
+
+# ===== OPTIONAL: GEO ANALYSIS =====
+# geopandas>=0.13.0
+# folium>=0.14.0
