@@ -52,81 +52,81 @@ def main():
     
     def normalizza_nome_partito(nome):
         """Normalizza i nomi dei partiti per il matching - VERSIONE CORRETTA"""
-    if pd.isna(nome):
-        return nome
-    
-    nome = str(nome).strip().upper()
-    
-    # Mapping delle normalizzazioni - AGGIORNATO PER M5S
-    mappings = {
-        # Fratelli d'Italia
-        'FRATELLI D\'ITALIA': 'FRATELLI D\'ITALIA',
-        'FRATELLI D\'ITALIA CON GIORGIA MELONI': 'FRATELLI D\'ITALIA',
-        'FRATELLI D\'ITALIA - ALLEANZA NAZIONALE': 'FRATELLI D\'ITALIA',
+        if pd.isna(nome):
+            return nome
         
-        # Lega
-        'LEGA': 'LEGA',
-        'LEGA PER SALVINI PREMIER': 'LEGA',
-        'LEGA - SALVINI PREMIER': 'LEGA',
-        'LEGA SALVINI PREMIER': 'LEGA',
+        nome = str(nome).strip().upper()
         
-        # Forza Italia
-        'FORZA ITALIA': 'FORZA ITALIA',
-        'FORZA ITALIA - BERLUSCONI PRESIDENTE': 'FORZA ITALIA',
-        
-        # Partito Democratico
-        'PARTITO DEMOCRATICO': 'PARTITO DEMOCRATICO',
-        'PD': 'PARTITO DEMOCRATICO',
-        'PARTITO DEMOCRATICO - ITALIA DEMOCRATICA E PROGRESSISTA': 'PARTITO DEMOCRATICO',
-        
-        # MOVIMENTO 5 STELLE - CORREZIONE CRITICA
-        'MOVIMENTO 5 STELLE': 'MOVIMENTO 5 STELLE',
-        'M5S': 'MOVIMENTO 5 STELLE',
-        'MOVIMENTO CINQUE STELLE': 'MOVIMENTO 5 STELLE',
-        'MOVIMENTO 5STELLE': 'MOVIMENTO 5 STELLE',
-        '5 STELLE': 'MOVIMENTO 5 STELLE',
-        'CINQUE STELLE': 'MOVIMENTO 5 STELLE',
-        'MOVIMIENTO 5 STELLE': 'MOVIMENTO 5 STELLE',  # Possibili errori di battitura
-        
-        # Azione / Italia Viva
-        'AZIONE - ITALIA VIVA': 'AZIONE',
-        'AZIONE': 'AZIONE',
-        'ITALIA VIVA': 'AZIONE',
-        'AZIONE - ITALIA VIVA - CALENDA': 'AZIONE',
-        
-        # Verdi e Sinistra
-        'ALLEANZA VERDI E SINISTRA': 'ALLEANZA VERDI E SINISTRA',
-        'VERDI': 'ALLEANZA VERDI E SINISTRA',
-        'SINISTRA ITALIANA': 'ALLEANZA VERDI E SINISTRA',
-        'EUROPA VERDE': 'ALLEANZA VERDI E SINISTRA',
-        'SINISTRA ITALIANA - VERDI': 'ALLEANZA VERDI E SINISTRA',
-        
-        # Altri partiti
-        '+EUROPA': '+EUROPA',
-        'PIU\' EUROPA': '+EUROPA',
-        'PIÙ EUROPA': '+EUROPA',
-        'IMPEGNO CIVICO': 'IMPEGNO CIVICO',
-        'NOI MODERATI': 'NOI MODERATI',
-        'NOI CON L\'ITALIA': 'NOI MODERATI',
-        'ITALEXIT': 'ITALEXIT',
-        'UNIONE POPOLARE': 'UNIONE POPOLARE',
-        'VITA': 'VITA'
-    }
-    
-    # Prima cerca match diretto completo
-    if nome in mappings:
-        return mappings[nome]
-    
-    # Poi cerca match parziale per M5S e altri casi
-    for key, value in mappings.items():
-        if key in nome or nome in key:
-            return value
-    
-    # Se non trova match, cerca pattern specifici per M5S
-    if any(pattern in nome for pattern in ['5 STELLE', 'STELLE', 'M5S', 'CINQUE']):
-        return 'MOVIMENTO 5 STELLE'
+        # Mapping delle normalizzazioni - AGGIORNATO PER M5S
+        mappings = {
+            # Fratelli d'Italia
+            'FRATELLI D\'ITALIA': 'FRATELLI D\'ITALIA',
+            'FRATELLI D\'ITALIA CON GIORGIA MELONI': 'FRATELLI D\'ITALIA',
+            'FRATELLI D\'ITALIA - ALLEANZA NAZIONALE': 'FRATELLI D\'ITALIA',
             
-    return nome
+            # Lega
+            'LEGA': 'LEGA',
+            'LEGA PER SALVINI PREMIER': 'LEGA',
+            'LEGA - SALVINI PREMIER': 'LEGA',
+            'LEGA SALVINI PREMIER': 'LEGA',
+            
+            # Forza Italia
+            'FORZA ITALIA': 'FORZA ITALIA',
+            'FORZA ITALIA - BERLUSCONI PRESIDENTE': 'FORZA ITALIA',
+            
+            # Partito Democratico
+            'PARTITO DEMOCRATICO': 'PARTITO DEMOCRATICO',
+            'PD': 'PARTITO DEMOCRATICO',
+            'PARTITO DEMOCRATICO - ITALIA DEMOCRATICA E PROGRESSISTA': 'PARTITO DEMOCRATICO',
+            
+            # MOVIMENTO 5 STELLE - CORREZIONE CRITICA
+            'MOVIMENTO 5 STELLE': 'MOVIMENTO 5 STELLE',
+            'M5S': 'MOVIMENTO 5 STELLE',
+            'MOVIMENTO CINQUE STELLE': 'MOVIMENTO 5 STELLE',
+            'MOVIMENTO 5STELLE': 'MOVIMENTO 5 STELLE',
+            '5 STELLE': 'MOVIMENTO 5 STELLE',
+            'CINQUE STELLE': 'MOVIMENTO 5 STELLE',
+            'MOVIMIENTO 5 STELLE': 'MOVIMENTO 5 STELLE',  # Possibili errori di battitura
+            
+            # Azione / Italia Viva
+            'AZIONE - ITALIA VIVA': 'AZIONE',
+            'AZIONE': 'AZIONE',
+            'ITALIA VIVA': 'AZIONE',
+            'AZIONE - ITALIA VIVA - CALENDA': 'AZIONE',
+            
+            # Verdi e Sinistra
+            'ALLEANZA VERDI E SINISTRA': 'ALLEANZA VERDI E SINISTRA',
+            'VERDI': 'ALLEANZA VERDI E SINISTRA',
+            'SINISTRA ITALIANA': 'ALLEANZA VERDI E SINISTRA',
+            'EUROPA VERDE': 'ALLEANZA VERDI E SINISTRA',
+            'SINISTRA ITALIANA - VERDI': 'ALLEANZA VERDI E SINISTRA',
+            
+            # Altri partiti
+            '+EUROPA': '+EUROPA',
+            'PIU\' EUROPA': '+EUROPA',
+            'PIÙ EUROPA': '+EUROPA',
+            'IMPEGNO CIVICO': 'IMPEGNO CIVICO',
+            'NOI MODERATI': 'NOI MODERATI',
+            'NOI CON L\'ITALIA': 'NOI MODERATI',
+            'ITALEXIT': 'ITALEXIT',
+            'UNIONE POPOLARE': 'UNIONE POPOLARE',
+            'VITA': 'VITA'
+        }
+        
+        # Prima cerca match diretto completo
+        if nome in mappings:
+            return mappings[nome]
+        
+        # Poi cerca match parziale per M5S e altri casi
+        for key, value in mappings.items():
+            if key in nome or nome in key:
+                return value
+        
+        # Se non trova match, cerca pattern specifici per M5S
+        if any(pattern in nome for pattern in ['5 STELLE', 'STELLE', 'M5S', 'CINQUE']):
+            return 'MOVIMENTO 5 STELLE'
+                
+        return nome
     
     # Applica normalizzazione
     social_df['PARTITO'] = social_df['PARTITO_REALE'].apply(normalizza_nome_partito)
