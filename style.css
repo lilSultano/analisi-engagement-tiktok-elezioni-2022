@@ -45,3 +45,39 @@ ol > b > li:before, ol > li:before {
 ol > b > ul {
     font-weight: 400;
 }
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.left {
+  flex: 1 1 55%;
+  min-width: 300px;
+}
+
+.right {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.right img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .right img {
+    width: 70%;
+  }
+}
