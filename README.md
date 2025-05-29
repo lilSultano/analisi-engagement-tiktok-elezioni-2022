@@ -2,6 +2,10 @@
 
 Un'analisi quantitativa per comprendere se e quanto l'attività su TikTok da parte dei partiti politici italiani abbia inciso sui risultati delle elezioni politiche del 2022.
 
+#  🖥️ Link alle slide online
+
+- https://lilsultano.github.io/analisi-engagement-tiktok-elezioni-2022/#/
+
 ## 📌 Obiettivi dell’analisi
 
 1. Esplorare la distribuzione delle metriche TikTok (post, views, engagement) tra i partiti.
